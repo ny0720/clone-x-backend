@@ -1,0 +1,11 @@
+$kind: http-request
+name: http://localhost:3000/users
+description: ""
+url: http://localhost:3000/users
+method: GET
+settings:
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 2055854675202795

@@ -1,0 +1,40 @@
+$kind: http-request
+description: ""
+url: http://localhost:3000/feed
+method: GET
+scripts:
+  - type: afterResponse
+    code: "\r
+
+      pm.test(\"응답 상태 코드가 200이다\", function () {\r
+
+      \  pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"피드 데이터가 배열이다\", function () {\r
+
+      \  const feeds = pm.response.json();\r
+
+      \  pm.expect(feeds).to.be.an(\"array\");\r
+
+      });\r
+
+      \r
+
+      pm.test(\"피드가 10개이다\", function () {\r
+
+      \  const feeds = pm.response.json();\r
+
+      \  pm.expect(feeds.length).to.eql(10);\r
+
+      });\r\n"
+    language: text/javascript
+settings:
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 1791467225757
